@@ -1,0 +1,332 @@
+/* Default styling for desktop (as before) */
+body { 
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    flex-direction: row;  /* Default to row for desktop */
+    transition: all 0.3s ease;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #4EDFD8;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1;
+}
+
+.sidebar .profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .profile i {
+    font-size: 50px;
+}
+
+.sidebar .profile p {
+    margin: 10px 0 0;
+}
+
+.sidebar .menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar .menu li {
+    margin: 20px 0;
+    text-align: center;
+    color: #333;
+    cursor: pointer;
+    position: relative;
+}
+
+.sidebar .menu li i {
+    font-size: 30px;
+}
+
+.sidebar .menu li.active {
+    background-color: #ffffff;
+    color: #000;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 20px 0 0 20px;
+    width: 100%;
+    margin-left: auto;
+}
+
+.content {
+    width: 80%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 0 20px 20px 0; 
+    margin-left: 20%;
+}
+
+.content h2 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.events-content, .dashboard-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.event-box {
+    width: 45%;
+    height: 100px;
+    background-color: #4EDFD8;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.add-event {
+    font-size: 30px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.add-event i{
+    font-size: 20px;
+    margin-right: 10px;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 20px;
+    background-color: #4EDFD8;
+    cursor: pointer;
+}
+
+.add-event p {
+    font-size: 18px;
+    margin: 0;
+}
+
+.search-bar {
+    float: right;
+    margin-top: -40px;
+    width: 60%;
+    max-width: 500px;
+}
+
+.search-bar input {
+    padding: 10px;
+    border-radius: 16px;
+    border: 1px solid #000;
+    width: 60%;
+    max-width: 500px;
+}
+
+.events-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.header {
+    background-color: #4EDFD8;
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: -20px;
+    margin-right: -20px;
+    box-sizing: border-box;
+}
+
+.sidebar .profile a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    margin-top: 10px;
+    display: block;
+    cursor: pointer;
+}
+
+.sidebar .profile a:hover {
+    color: #000;
+}
+
+.profile-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: auto; 
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.avatar-circle {
+    font-size: 60px;
+    color: #4EDFD8;
+    background-color: #eee;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    text-decoration: none;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*mobile pov*/
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        background-color: #fff;  /* Set a default background color for the entire container */
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-radius: 20px 20px 0 0;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 10px;
+        background-color: #4EDFD8;  /* Background color for the sidebar */
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;  /* Smooth transition for background*/
+        box-shadow: 0 4px 8px rgba(197, 180, 227, 0.5);  /*color #c5b4e3 */
+
+    }
+
+    .content {
+        width: 100%;
+        margin-left: 0; 
+        padding: 10px;
+        flex-grow: 1;  
+        transition: none; 
+        background-color: #fff;  /* Background color for the content */
+    }
+
+    .search-bar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .sidebar .menu {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        padding: 0;  
+        margin: 0;  
+    }
+
+    .sidebar .menu li {
+        list-style-type: none;
+        margin: 0;
+        text-align: center;
+        background-color: #4EDFD8;  /* Background for the menu items */
+        border-radius: 10px;
+        flex-grow: 1; 
+        padding: 10px;  
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .sidebar .menu li i {
+        font-size: 25px;
+    }
+
+    .sidebar .menu li.active {
+        background-color: #007bff;  /* Active item background color */
+        color: #4EDFD8;  /* Active item text color */
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 100px;  
+        width: auto;  
+    }
+
+    
+    .dashboard-name {
+        margin-left: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;  /* Ensure text color is visible */
+    }
+
+    
+    .sidebar .menu li a {
+        display: inline-block;
+        text-decoration: none;
+        padding: 5px;
+        line-height: 1.5;
+        color: #333;  /* Text color for menu items */
+    }
+
+    .sidebar .menu li a:hover {
+    background-color: #e0e0e0;  /* hover effect */
+    transform: scale(1.05);  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Add shadow effect on hover */
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        flex-direction: column; 
+    }
+
+    .add-event {
+        margin-right: 10px; 
+    }
+
+    .search-bar {
+        margin-left: 10px;
+        width: 100%;
+        margin-top: 20px;  
+    }
+}
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Reminder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="sidebar">
+
+            <div class="profile">
+                <i class="fas fa-user-circle" onclick="showProfile()"></i>
+                <a href="#" class="profile-link">Name</a>
+            </div>
+
+            <ul class="menu">
+                <li class="active" onclick="showContent('dashboard')"><i class="fas fa-th-large"></i><br>Dashboard</li>
+                <li onclick="showContent('events')"><i class="fas fa-calendar-alt"></i><br>Events</li>
+                <li onclick="showContent('logout')"><i class="fas fa-sign-out-alt"></i><br>Logout</li>
+            </ul>
+
+        </div>
+
+        <div class="content">
+
+            <div id="dashboard-content">
+                <div class="header">EVENT REMINDER</div>
+                <h2>Today's Event</h2>
+                <div class="dashboard-content">
+                    <div class="event-box"></div>
+                    <div class="event-box"></div>
+                    <div class="event-box"></div>
+                    <div class="event-box"></div>
+                </div>
+                <h2>Upcoming Events</h2>
+                <div class="dashboard-content">
+                    <div class="event-box"></div>
+                    <div class="event-box"></div>
+                </div>
+            </div>
+
+            <div id="events-content" style="display: none;">
+                <div class="header">EVENT REMINDER</div>
+                <div class="add-event">
+                    <i class="fas fa-plus-circle">ADD EVENT</i>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                </div>
+                <h2>TODAY'S EVENT</h2>
+                <div class="events-section">
+                    <div class="event-box"></div>
+                    <div class="event-box"></div>
+                    <div class="event-box"></div>
+                    <div class="event-box"></div>
+                    <div class="event-box"></div>
+                    <div class="event-box"></div>
+                </div>
+                <h2>UPCOMING EVENTS</h2>
+                <div class="events-section">
+                    <div class="event-box"></div>
+                    <div class="event-box"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profile-modal" class="profile-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProfile()">×</span>
+            <div class="avatar-circle">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <h3>Name</h3>
+            <h3>Content is under construction - devnash</h3>
+            <p>Email: nash.backup21@gmail.com</p>
+        </div>
+    </div>
+
+    <script>
+        function showProfile() {
+            document.getElementById('profile-modal').style.display = 'block';
+        }
+
+        function closeProfile() {
+            document.getElementById('profile-modal').style.display = 'none';
+        }
+
+        function showContent(section) {
+            // Hide all sections
+            document.getElementById('dashboard-content').style.display = 'none';
+            document.getElementById('events-content').style.display = 'none';
+
+            // Show the selected section
+            if (section === 'dashboard') {
+                document.getElementById('dashboard-content').style.display = 'block';
+            } else if (section === 'events') {
+                document.getElementById('events-content').style.display = 'block';
+            }
+
+            // Update sidebar active class
+            document.querySelectorAll('.sidebar .menu li').forEach(item => item.classList.remove('active'));
+            document.querySelector(`.sidebar .menu li:contains(${section.charAt(0).toUpperCase() + section.slice(1)})`).classList.add('active');
+        }
+    </script>
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>
